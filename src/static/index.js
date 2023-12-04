@@ -4,7 +4,7 @@ export const PRODUCTS = [
         title: "Lenovo thinkplus lp12 simsiz quloqchinlari, TWS",
         price: 199_000,
         category: "texnika",
-        url: "https://images.uzum.uz/clf4iolennt1kt4dbqog/t_product_540_high.jpg#1701443777408"
+        url: "https://img.gkbcdn.com/p/2022-02-18/Lenovo-Thinkplus-XT95Pro-TWS-Wireless-Earphone-Luminous-Black-496699-0._w500_p1_.jpg"
     },
     {
         id: "pro-2",

@@ -23,7 +23,7 @@ function Navbar() {
         </div>
         <ul className="nav__collection">
           <li className="nav__item nav__home">
-            <NavLink to={"/wishes"}>
+            <NavLink to={"/"}>
             <IoHomeOutline/>
             <span>Asosiy sahifa</span>
             </NavLink>
