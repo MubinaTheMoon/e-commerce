@@ -1,0 +1,39 @@
+.carousel{
+    width: 100%;
+    height: 450px;
+    border-radius: 20px;    
+    overflow: hidden;
+}
+.carousel .carousel__inner,
+.carousel img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel__mobile{
+    display: none;
+}
+
+
+
+@media screen and (max-width:1100px) {
+    .carousel{
+        height: 360px;
+    }
+}
+@media screen and (max-width:900px) {
+    .carousel{
+        height: 280px;
+    }
+}
+@media screen and (max-width:600px) {
+    .carousel__desktop{
+        display: none;
+    }
+    .carousel__mobile{
+        display: block;
+    }
+    .carousel{
+        height: 210px;
+    }
+}

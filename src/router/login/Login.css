@@ -1,0 +1,64 @@
+.login__card{
+    height: 530px;
+    display: flex;
+    justify-content: center;
+}
+.login__list{
+    width: 400px;
+    height: 440px;
+    margin-top: 50px;
+    padding: 3% 3%;
+    border-radius: 30px;
+    box-shadow: 0 0 20px #7000ff33, 10px 10px 30px #7000ff33;
+}
+.login__list h2{
+    padding-top: 30px;
+}
+.sms{
+    padding: 15px 0;
+    color: #1F2026;
+}
+.login__list input{
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background: #E6E8ED;
+    text-indent: 15px;
+    font-size: 20px;
+}
+.login__list button{
+    width: 100%;
+    height: 45px;
+    margin-top: 20px;
+    border-radius: 15px;
+    border: none;
+    background: var(--bg-py);
+    color: white;
+    font-size: 16px;
+    transition: .5s;
+    cursor: pointer;
+}
+.login__list button:hover{
+    background: #7000ffaa;
+}
+.link{
+    margin-top: 100px;
+    text-align: center;
+    font-size: 14px;
+}
+.link a{
+    color: dodgerblue;
+}
+
+
+
+
+
+
+
+
+.login__list button{
+    display: block;
+}
