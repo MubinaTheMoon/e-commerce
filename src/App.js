@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 import Footer from './components/footer/Footer';
 import NavbarBottom from './components/navbar-bottom/NavbarBottom';
 import Login from './router/login/Login';
+import CartProducts from './components/cart-products/CartProducts';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='wishes' element={<Wishes/>}/>
           <Route path='/cart' element={<Cart/>}/>
+          <Route path='/cart-products/:id' element={<CartProducts/>}/>
         </Routes>
         <Footer/> 
     </div>

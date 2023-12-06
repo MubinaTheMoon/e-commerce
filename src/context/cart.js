@@ -1,23 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-export const wishesSlice = createSlice({
-    name: "wishes",
+export const cartSlice = createSlice({
+    name: "cart",
     initialState: {
-        value: JSON.parse(localStorage.getItem("wishes")) || []
+        value: JSON.parse(localStorage.getItem("cart")) || []
     },
     reducers: {
-        toggleWishes(state, action){
+        toggleCart(state, action){
             let index = state.value.findIndex((el)=> el.id === action.payload.id)
             if(index < 0){
                 state.value = [...state.value, action.payload]
-                localStorage.setItem("wishes", JSON.stringify(state.value))
+                localStorage.setItem("cart", JSON.stringify(state.value))
             }else{
                 state.value = state.value.filter(el => el.id !== action.payload.id)
-                localStorage.setItem("wishes", JSON.stringify(state.value))
+                localStorage.setItem("cart", JSON.stringify(state.value))
             }
         }
     }
 })
 
-export const { toggleWishes } = wishesSlice.actions
-export default wishesSlice.reducer
+export const { toggleCart } = cartSlice.actions
+export default cartSlice.reducer

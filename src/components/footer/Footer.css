@@ -83,6 +83,9 @@
         margin-top: 100px;
         display: block;
     }
+    .about{
+        margin-bottom: 80px;
+    }
    
 }
 @media screen and (max-width:530px){
@@ -96,9 +99,7 @@
         padding-left: 5px;
         font-size: 20px;
     }
-    .about{
-        margin-bottom: 20px;
-    }
+    
 }
 @media screen and (max-width:500px){
     .platforms{
