@@ -25,7 +25,7 @@ function CartProducts() {
         {
           PRODUCTS?.map(el => <div key={el.title} className='cart__item'>
             <div className='cart__item-left'>
-              <img src={el.url} alt="" />
+              <img src={el.url} alt={el.title} />
               <div>
                 <h4>{el.title}</h4>
                 <p>Kategoriya: {el.category}</p>

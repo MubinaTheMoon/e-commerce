@@ -11,14 +11,13 @@ function Product({ data }) {
   const dispatch = useDispatch();
   const wishes = useSelector(s => s.wishes.value)
   const cart = useSelector(s => s.cart.value)
-  const [singleUser, setSingleUser] = useState(null)
 
   return (
     <div className="products__wrapper">
       {data?.map((el) => (
         <div key={el.id} className="products__card">
-          <div onClick={()=> setSingleUser(el)} className="products__image">
-            <img src={el.url} alt="pic of products" />
+          <div className="products__image">
+            <img src={el.url} alt={el.title} />
           </div>
           <div className="products__body">
             <p className="products__title">{el.title}</p>
@@ -43,9 +42,7 @@ function Product({ data }) {
             </div>
         </div>
       ))}
-      {
-        singleUser && <CartProducts setSingleUser={setSingleUser} single={singleUser} />
-      }
+
     </div>
   );
 }
