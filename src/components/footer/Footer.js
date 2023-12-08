@@ -5,8 +5,14 @@ import insta from "../../assets/instagram-logo-svg-vector-for-print.svg"
 import tg from "../../assets/tg-svg.png"
 import yt from "../../assets/Youtube.svg"
 import fb from "../../assets/Facebook_icon_2013.svg.png"
+import { useLocation } from 'react-router-dom';
 
 function Footer() {
+    const { pathname } = useLocation()
+    console.log(pathname);
+    if(pathname.includes("login")){
+      return <></>
+    }
   return (
     <div className='container'> 
          <div className="footer">

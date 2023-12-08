@@ -1,21 +1,22 @@
 import React from 'react'
 import "./Login.css"
+import {Link} from "react-router-dom"
 
 function Login() {
   return (
-    <div className="main">
-      <div className='container'>
-        <div className="login__card">
-          <div className="login__list">
-            <h2>Telefon raqamini kiriting</h2>
-            <p className='sms'>Tasdiqlash kodini SMS orqali yuboramiz</p>
-            <input type="text" required placeholder='Username' />
-            <input type="text" required placeholder='Password' />
-            <button>Kodni olish</button>
-            <p className='link'>Avtotizatsiyadan o'tish orqali siz <a href="#">shaxsiy ma'lumotlarni qayta ishlash siyosatiga rozilik bildirasiz</a> </p>
-          </div>
-        </div>      
+    <div className="login">
+      <div className="login__box">
+        <h2>Tizimga kirish</h2>
+        <form action="">
+          <input type="text" placeholder='Foydalanuvchi nomi' />
+          <input type="text" placeholder='Parol' />
+          <button type='submit'>Kirish</button>
+        </form>
+        <Link to={"/"}>
+          <p className='link'>Asosiy sahifaga qaytish</p>
+        </Link>
       </div>
+      
     </div>
   )
 }

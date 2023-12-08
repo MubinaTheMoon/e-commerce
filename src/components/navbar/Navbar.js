@@ -4,9 +4,15 @@ import { CiSearch } from "react-icons/ci"
 import { FaRegUser, FaRegHeart } from "react-icons/fa"
 import { AiOutlineShoppingCart } from "react-icons/ai"
 import { IoHomeOutline, IoMenu } from "react-icons/io5"
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 function Navbar() {
+  const { pathname } = useLocation()
+  console.log(pathname);
+  if(pathname.includes("login")){
+    return <></>
+  }
+
   return (
     <div className='container'>
       <div className="navbar">

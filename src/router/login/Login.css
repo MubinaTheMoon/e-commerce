@@ -1,58 +1,56 @@
-.main{
-    background: linear-gradient(25deg, var(--bg-py), plum, dodgerblue);
-}
-.login__card{
-    height: 530px;
+.login{
+    width: 100%;
+    min-height: 100vh;
+    background: var(--bg-sy);
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 0 14px;
 }
-.login__list{
-    width: 370px;
-    height: 440px;
-    margin-top: 50px;
-    border-radius: 50px;
-    padding: 3% 3%;
+.login__box{
+    width: 350px;
+    min-height: 350px;
     background: #fff;
-    box-shadow: 0 0 20px #ddda, 10px 10px 30px #ddda;
+    border-radius: 14px;
+    padding: 20px;
 }
-.login__list h2{
-    padding-top: 30px;
+.login__box h2{
+    text-align: center;
+    color: var(--bg-py);
+    margin-bottom: 20px;
 }
-.sms{
-    padding: 15px 0;
-    color: #1F2026;
-}
-.login__list input{
+.login__box input{
     width: 100%;
-    height: 50px;
-    border: none;
-    border-bottom: 2px solid #E6E8ED;
+    height: 38px;
+    margin-bottom: 16px;
     outline: none;
-    text-indent: 15px;
-    font-size: 17px;
-    margin-bottom: 10px;
+    border: none;
+    background: var(--bg-sy);
+    text-indent: 20px;
+    border-radius: 10px;
+    font-size: 16px;
 }
-.login__list button{
+.login__box button{
     width: 100%;
-    height: 45px;
-    border-radius: 15px;
+    height: 38px;
+    margin-bottom: 20px;
     border: none;
     background: var(--bg-py);
-    color: white;
-    font-size: 16px;
-    transition: .5s;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: .3s;
 }
-.login__list button:hover{
-    background: #7000ffaa;
+.login__box button:hover{
+    background: #6f00ffcd;
 }
 .link{
-    margin-top: 50px;
     text-align: center;
-    font-size: 14px;
-}
-.link a{
     color: dodgerblue;
+    margin-top:70px;
+    font-weight: 600;
+    text-decoration: underline;
 }
 
 
@@ -61,7 +59,3 @@
 
 
 
-
-.login__list button{
-    display: block;
-}

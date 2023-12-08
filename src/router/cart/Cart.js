@@ -1,16 +1,14 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import Empty from '../../components/empty/Empty'
-import Product from '../../components/product/Product'
 import pic from "../../assets/shopocat.490a4a1.png"
+import CartProducts from '../../components/cart-products/CartProducts'
 
 function Cart() {
-  const cart = useSelector(s => s.cart.value)
-  console.log(cart);
+  let cart = true
   return (
     <div className='container'>
       {
-        !cart.length ?
+        !cart ?
         <Empty
         title="Savatda hozircha mahsulot yoʻq"
         url={pic}
@@ -18,7 +16,7 @@ function Cart() {
         btnTitle="Bosh sahifa"
         link="/"
         /> :
-        <Product data={cart}/>
+        <CartProducts/>
       }
 
     </div>

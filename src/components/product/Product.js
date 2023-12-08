@@ -1,25 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Product.css";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { IoCartOutline, IoCartSharp } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleWishes } from "../../context/wishes";
 import { toggleCart } from "../../context/cart";
-import { Link } from "react-router-dom";
+import CartProducts from "../cart-products/CartProducts";
 
 function Product({ data }) {
   const dispatch = useDispatch();
   const wishes = useSelector(s => s.wishes.value)
   const cart = useSelector(s => s.cart.value)
+  const [singleUser, setSingleUser] = useState(null)
+
   return (
     <div className="products__wrapper">
       {data?.map((el) => (
         <div key={el.id} className="products__card">
-          <Link to={`/cart-products/${el.id}`}>
-            <div className="products__image">
-              <img src={el.url} alt="" />
-            </div>
-          </Link>
+          <div onClick={()=> setSingleUser(el)} className="products__image">
+            <img src={el.url} alt="" />
+          </div>
           <div className="products__body">
             <p className="products__title">{el.title}</p>
             <div style={{ flex: 1 }}>
@@ -43,6 +43,9 @@ function Product({ data }) {
             </div>
         </div>
       ))}
+      {
+        singleUser && <CartProducts setSingleUser={setSingleUser} single={singleUser} />
+      }
     </div>
   );
 }
