@@ -9,7 +9,7 @@ function Login() {
         <h2>Tizimga kirish</h2>
         <form action="">
           <input type="text" placeholder='Foydalanuvchi nomi' />
-          <input type="text" placeholder='Parol' />
+          <input type="password" placeholder='Parol' />
           <button type='submit'>Kirish</button>
         </form>
         <Link to={"/"}>
