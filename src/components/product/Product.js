@@ -18,7 +18,7 @@ function Product({ data }) {
       {data?.map((el) => (
         <div key={el.id} className="products__card">
           <div onClick={()=> setSingleUser(el)} className="products__image">
-            <img src={el.url} alt="" />
+            <img src={el.url} alt="pic of products" />
           </div>
           <div className="products__body">
             <p className="products__title">{el.title}</p>
