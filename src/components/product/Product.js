@@ -4,6 +4,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { IoCartOutline} from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleWishes } from "../../context/wishes";
+import { incCart } from "../../context/cartSlice";
 
 function Product({ data }) {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ function Product({ data }) {
                   wishes.some(item => item.id === el.id) ? <FaHeart style={{color: "var(--bg-py)" }}/> : <FaRegHeart/>
               }
             </div>
-            <div className="products__cart">
+            <div onClick={() => dispatch(incCart(el))} className="products__cart">
               <IoCartOutline />
             </div>
         </div>

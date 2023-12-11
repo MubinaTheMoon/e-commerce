@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import "./CartProducts.css"
-import {PRODUCTS} from "../../static"
 import {FaRegTrashAlt} from 'react-icons/fa'
+import { incCart, decToCart, removeCart } from '../../context/cartSlice'
+import { useDispatch } from 'react-redux'
 
-function CartProducts() {
+function CartProducts({data}) {
+  const dispatch = useDispatch()
   const [name, setName] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
   const [address, setAddress] = useState("")
@@ -17,13 +19,12 @@ function CartProducts() {
       address,
       message,
     }
-    console.log(newInfo);
   }
   return (
     <div className='cart__wrapper'>
       <div className="cart__products">
         {
-          PRODUCTS?.map(el => <div key={el.title} className='cart__item'>
+          data?.map(el => <div key={el.title} className='cart__item'>
             <div className='cart__item-left'>
               <img src={el.url} alt={el.title} />
               <div>
@@ -33,13 +34,17 @@ function CartProducts() {
             </div>   
             <div className="cart__item-right">
               <div className="cart__item-btns">
-                <button>-</button>
-                <button>1</button>
-                <button>+</button>
+                <button disabled={el.quantity
+                <= 1} onClick={() => dispatch(decToCart(el))}>-</button>
+                <button>{el.quantity}</button>
+                <button onClick={() => dispatch(incCart(el))}>+</button>
               </div>
               <div>
-                <button  className='cart__trash-btn'><FaRegTrashAlt/></button>
+                <button  
+                onClick={() => dispatch(removeCart(el))}
+                className='cart__trash-btn'><FaRegTrashAlt/></button>
                 <h3>{el.price?.brm()} so'm</h3>
+                <p> {(el.price * el.quantity)?.brm()} so'm</p>
               </div>
             </div>
           </div> )
@@ -55,7 +60,7 @@ function CartProducts() {
             <input value={message} onChange={(e)=> setMessage(e.target.value)} required type="text" placeholder="Habar yo'llash" />
             <div className="total">
               <p>Umumiy narx:</p>
-              <b>2368755</b>
+              <b>{data.reduce((a,b)=> a + b.price * b.quantity, 0)?.brm()} so'm</b>
             </div>
             <button className="btn-reg">Rasmiylashtirishga o'tish</button>
           </form>
