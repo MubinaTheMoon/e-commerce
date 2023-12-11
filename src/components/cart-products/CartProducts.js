@@ -41,11 +41,7 @@ function CartProducts() {
                 <button  className='cart__trash-btn'><FaRegTrashAlt/></button>
                 <h3>{el.price?.brm()} so'm</h3>
               </div>
-
-
             </div>
-
-
           </div> )
         }
       </div>

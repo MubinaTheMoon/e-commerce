@@ -1,11 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import "./Product.css";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { IoCartOutline, IoCartSharp } from "react-icons/io5";
+import { IoCartOutline} from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleWishes } from "../../context/wishes";
-import { toggleCart } from "../../context/cart";
-import CartProducts from "../cart-products/CartProducts";
 
 function Product({ data }) {
   const dispatch = useDispatch();
@@ -35,10 +33,8 @@ function Product({ data }) {
                   wishes.some(item => item.id === el.id) ? <FaHeart style={{color: "var(--bg-py)" }}/> : <FaRegHeart/>
               }
             </div>
-            <div onClick={()=> dispatch(toggleCart(el))} className="products__cart">
-              {
-                cart.some(i=> i.id === el.id) ? <IoCartSharp style={{color: "var(--bg-py)"}}/> :  <IoCartOutline />
-              }
+            <div className="products__cart">
+              <IoCartOutline />
             </div>
         </div>
       ))}

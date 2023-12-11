@@ -3,7 +3,7 @@ import Carousel from '../../components/carousel/Carousel'
 import Product from '../../components/product/Product'
 import {PRODUCTS} from "../../static"
 
-function Home() {
+function Home({data}) {
   return (
     <div className='container'>
       <Carousel/>

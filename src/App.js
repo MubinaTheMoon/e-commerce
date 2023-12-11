@@ -9,15 +9,16 @@ import Footer from './components/footer/Footer';
 import NavbarBottom from './components/navbar-bottom/NavbarBottom';
 import Login from './router/login/Login';
 import CartProducts from './components/cart-products/CartProducts';
+import {PRODUCTS} from "./static"
 
 function App() {
   return (
     <div className="App">
         <SubHeader/>
-        <Navbar/>
+        <Navbar data={PRODUCTS} />
         <NavbarBottom/>
         <Routes>
-          <Route path='/' element={<Home/>}/>
+          <Route path='/' element={<Home data={PRODUCTS}/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='wishes' element={<Wishes/>}/>
           <Route path='/cart' element={<Cart/>}/>
