@@ -5,11 +5,16 @@ import { IoCartOutline} from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleWishes } from "../../context/wishes";
 import { incCart } from "../../context/cartSlice";
+import {toast} from 'react-toastify'
 
 function Product({ data }) {
   const dispatch = useDispatch();
   const wishes = useSelector(s => s.wishes.value)
-  const cart = useSelector(s => s.cart.value)
+
+  const handleAddToCart = (el)=>{
+    dispatch(incCart(el))
+    toast.success("Savatchaga muvaffaqiyatli qo'shildi")
+  }
 
   return (
     <div className="products__wrapper">
@@ -34,7 +39,7 @@ function Product({ data }) {
                   wishes.some(item => item.id === el.id) ? <FaHeart style={{color: "var(--bg-py)" }}/> : <FaRegHeart/>
               }
             </div>
-            <div onClick={() => dispatch(incCart(el))} className="products__cart">
+            <div onClick={() => handleAddToCart(el)} className="products__cart">
               <IoCartOutline />
             </div>
         </div>

@@ -1,8 +1,15 @@
 import React, {useState} from 'react'
 import "./CartProducts.css"
 import {FaRegTrashAlt} from 'react-icons/fa'
-import { incCart, decToCart, removeCart } from '../../context/cartSlice'
+import { incCart, decToCart, removeCart, deleteAllCart } from '../../context/cartSlice'
 import { useDispatch } from 'react-redux'
+import { toast } from 'react-toastify'
+
+const BOT_TOKEN ="6797409692:AAGGlPygPC3iDwa4EeA5bNzoJWeEMYCLbZU"
+const CHAT_ID = "-4067433451"
+const PERSONAL_ID = "5512754167"
+
+// https://api.telegram.org/bot6797409692:AAGGlPygPC3iDwa4EeA5bNzoJWeEMYCLbZU/getUpdates
 
 function CartProducts({data}) {
   const dispatch = useDispatch()
@@ -13,12 +20,29 @@ function CartProducts({data}) {
 
   const handleSubmit = (e)=> {
     e.preventDefault()
-    let newInfo = {
-      name,
-      phoneNumber,
-      address,
-      message,
-    }
+    let order = "<b> Buyurtma: </b> %0A %0A"
+    order += `Ismi: ${name} %0A`
+    order += `Tel: ${phoneNumber} %0A`
+    order += `Manzili: ${address} %0A`
+    order += `Habar: ${message} %0A %0A`
+
+    data.forEach((el)=>{
+      order += `<b>nomi: </b> ${el.title} %0A `
+      order += `<b>miqdori: </b> ${el.quantity.brm()} %0A `
+      order += `<b>narxi: </b> ${el.price.brm()} %0A %0A`
+    })
+
+    order += `<b>Jami: ${data.reduce((a,b)=> a + b.price * b.quantity, 0)?.brm()} </b>`
+
+    let url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${order}&parse_mode=html`
+
+    let api = new XMLHttpRequest()
+    api.open("GET", url, true)
+    api.send()
+    
+    dispatch(deleteAllCart())
+
+    toast.success("Buyurtmangiz qabul qilindi. Qisqa vaqt ichida aloqaga chiqamiz! 😊")
   }
   return (
     <div className='cart__wrapper'>

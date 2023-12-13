@@ -10,6 +10,9 @@ import NavbarBottom from './components/navbar-bottom/NavbarBottom';
 import Login from './router/login/Login';
 import CartProducts from './components/cart-products/CartProducts';
 import {PRODUCTS} from "./static"
+import NotFound from './components/not-found/NotFound';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (
@@ -22,9 +25,11 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='wishes' element={<Wishes/>}/>
           <Route path='/cart' element={<Cart/>}/>
-          <Route path='/cart-products/:id' element={<CartProducts/>}/>
+          <Route path='/cart-products' element={<CartProducts/>}/>
+          <Route path='*' element={<NotFound/>}/>
         </Routes>
         <Footer/> 
+        <ToastContainer/>
     </div>
   );
 }
