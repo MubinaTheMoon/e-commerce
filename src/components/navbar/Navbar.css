@@ -65,6 +65,10 @@
     border-bottom: 1px solid #ddd;
     line-height: 1.6;
 }
+.nav__search-item:hover{
+    background: #f1f1f1;
+    cursor: pointer;
+}
 .nav__search-item img{
     width: 40px;
     height: 50px;

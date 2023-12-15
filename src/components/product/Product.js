@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Product.css";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { IoCartOutline} from "react-icons/io5";
@@ -9,6 +9,8 @@ import {toast} from 'react-toastify'
 import { Link } from "react-router-dom";
 
 function Product({ data }) {
+  const [count, setCount] = useState(1)
+  const DEFAULT__COUNT = 5
   const dispatch = useDispatch();
   const wishes = useSelector(s => s.wishes.value)
 
@@ -18,8 +20,9 @@ function Product({ data }) {
   }
 
   return (
-    <div className="products__wrapper">
-      {data?.map((el) => (
+    <>
+      <div className="products__wrapper">
+      {data.slice(0, count * DEFAULT__COUNT)?.map((el) => (
         <div key={el.id} className="products__card">
           <Link to={`/product/${el.id}`} className="products__image">
             <img src={el.url} alt={el.title} />
@@ -45,8 +48,11 @@ function Product({ data }) {
             </div>
         </div>
       ))}
-
-    </div>
+      </div>
+      {
+        data.length >= count * DEFAULT__COUNT ? <button onClick={()=> setCount(p => p + 1)} className="product__btn">Ko'proq ko'rish</button> : <></>
+      }
+    </>
   );
 }
 

@@ -15,8 +15,9 @@
     padding: 14px 0;
     color: #444;
     position: relative;
+    border: 1px solid #ddd;
 }
-.cart__item-left:last-child{
+.cart__item:last-child{
     border-bottom: none;
 }
 .cart__item-left{

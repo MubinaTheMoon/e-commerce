@@ -85,7 +85,7 @@
 }
 @media screen and (max-width:450px){
     .single__route-about{
-        width: 380px;
+        width: 100%;
     }
     .single__route-img img{
         width: 280px;
@@ -96,9 +96,7 @@
     }
 }
 @media screen and (max-width:400px){
-    .single__route-about{
-        width: 360px;
-    }
+
     .single__route-img img{
         width: 260px;
     }

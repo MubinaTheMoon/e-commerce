@@ -47,6 +47,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
+    word-break: break-all;
 }
 .products__monthly{
     display: inline-block;
@@ -90,16 +91,24 @@
     font-size: 18px;
     cursor: pointer;
 }
+.product__btn{
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+
+
 
 
 @media screen and (max-width:550px) {
     .products__wrapper{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 10px;
+        /* display: grid;
+        grid-template-columns: 1fr 1fr; */
+        gap: 10px;
     }
     .products__card{
-        width: auto;
+        width: calc(50% - 5px);
     }
 }
 @media screen and (max-width:450px) {

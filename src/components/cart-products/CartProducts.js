@@ -5,6 +5,7 @@ import { incCart, decToCart, removeCart, deleteAllCart } from '../../context/car
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
 import Confettiparty from '../confettiparty/Confettiparty'
+import { Link } from 'react-router-dom'
 
 const BOT_TOKEN ="6797409692:AAGGlPygPC3iDwa4EeA5bNzoJWeEMYCLbZU"
 const CHAT_ID = "-4031220765"
@@ -55,13 +56,13 @@ function CartProducts({data}) {
       <div className="cart__products">
         {
           data?.map(el => <div key={el.title} className='cart__item'>
-            <div className='cart__item-left'>
+            <Link to={`/product/${el.id}`} className='cart__item-left'>
               <img src={el.url} alt={el.title} />
               <div>
                 <h4>{el.title}</h4>
                 <p>Kategoriya: {el.category}</p>
               </div>
-            </div>   
+            </Link>   
             <div className="cart__item-right">
               <div className="cart__item-btns">
                 <button disabled={el.quantity
