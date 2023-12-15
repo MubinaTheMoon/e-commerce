@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleWishes } from "../../context/wishes";
 import { incCart } from "../../context/cartSlice";
 import {toast} from 'react-toastify'
+import { Link } from "react-router-dom";
 
 function Product({ data }) {
   const dispatch = useDispatch();
@@ -20,9 +21,9 @@ function Product({ data }) {
     <div className="products__wrapper">
       {data?.map((el) => (
         <div key={el.id} className="products__card">
-          <div className="products__image">
+          <Link to={`/product/${el.id}`} className="products__image">
             <img src={el.url} alt={el.title} />
-          </div>
+          </Link>
           <div className="products__body">
             <p className="products__title">{el.title}</p>
             <div style={{ flex: 1 }}>

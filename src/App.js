@@ -13,6 +13,8 @@ import {PRODUCTS} from "./static"
 import NotFound from './components/not-found/NotFound';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import SingleRoute from './router/single-route/SingleRoute';
+import Confettiparty from './components/confettiparty/Confettiparty';
 
 function App() {
   return (
@@ -25,8 +27,10 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='wishes' element={<Wishes/>}/>
           <Route path='/cart' element={<Cart/>}/>
+          <Route path='/confet' element={<Confettiparty/>}/>
           <Route path='/cart-products' element={<CartProducts/>}/>
-          <Route path='*' element={<NotFound/>}/>
+          <Route path='/product/:id' element={<SingleRoute data={PRODUCTS} />}/>
+          <Route path='*' element={<NotFound/>}/> 
         </Routes>
         <Footer/> 
         <ToastContainer/>

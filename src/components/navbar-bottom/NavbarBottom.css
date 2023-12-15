@@ -7,3 +7,10 @@
     overflow: auto;
     white-space: nowrap;
 }
+.navbar__bottom::-webkit-scrollbar{
+    height: 6px;
+}
+.navbar__bottom::-webkit-scrollbar-thumb{
+    background: #aaa;
+    border-radius: 6px;
+}

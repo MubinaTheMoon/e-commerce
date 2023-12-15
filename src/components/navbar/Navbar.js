@@ -20,7 +20,6 @@ function Navbar({data}) {
     }
   }, [value] )
 
-  console.log(searchData);
 
   if(pathname.includes("login")){
     return <></>

@@ -4,9 +4,10 @@ import {FaRegTrashAlt} from 'react-icons/fa'
 import { incCart, decToCart, removeCart, deleteAllCart } from '../../context/cartSlice'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
+import Confettiparty from '../confettiparty/Confettiparty'
 
 const BOT_TOKEN ="6797409692:AAGGlPygPC3iDwa4EeA5bNzoJWeEMYCLbZU"
-const CHAT_ID = "-4067433451"
+const CHAT_ID = "-4031220765"
 const PERSONAL_ID = "5512754167"
 
 // https://api.telegram.org/bot6797409692:AAGGlPygPC3iDwa4EeA5bNzoJWeEMYCLbZU/getUpdates
@@ -17,7 +18,9 @@ function CartProducts({data}) {
   const [phoneNumber, setPhoneNumber] = useState("")
   const [address, setAddress] = useState("")
   const [message, setMessage] = useState("")
-
+  const [confetti, setConfetti] = useState(false)
+  console.log(confetti);
+  
   const handleSubmit = (e)=> {
     e.preventDefault()
     let order = "<b> Buyurtma: </b> %0A %0A"
@@ -31,18 +34,21 @@ function CartProducts({data}) {
       order += `<b>miqdori: </b> ${el.quantity.brm()} %0A `
       order += `<b>narxi: </b> ${el.price.brm()} %0A %0A`
     })
-
+    
     order += `<b>Jami: ${data.reduce((a,b)=> a + b.price * b.quantity, 0)?.brm()} </b>`
 
     let url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${order}&parse_mode=html`
-
+    
     let api = new XMLHttpRequest()
     api.open("GET", url, true)
     api.send()
     
-    dispatch(deleteAllCart())
-
-    toast.success("Buyurtmangiz qabul qilindi. Qisqa vaqt ichida aloqaga chiqamiz! 😊")
+    
+    toast.success("Buyurtmangiz qabul qilindi. Qisqa vaqt ichida aloqaga chiqamiz! 😊") 
+    setConfetti(true)
+    setTimeout(()=>{
+      dispatch(deleteAllCart())
+    }, 6000)
   }
   return (
     <div className='cart__wrapper'>
@@ -77,7 +83,7 @@ function CartProducts({data}) {
       <div className="cart__register">
         <div className="input__reg">
           <h3>Ma'lumotlarni to'ldiring:</h3>
-          <form onSubmit={handleSubmit} action="">
+          <form onSubmit={handleSubmit} action="" >
             <input value={name} onChange={(e)=> setName(e.target.value)} required type="text" placeholder="To'liq ismingiz" />
             <input value={phoneNumber} onChange={(e)=> setPhoneNumber(e.target.value)} required type="text" placeholder="+998 00-000-00-00" />
             <input value={address} onChange={(e)=> setAddress(e.target.value)} required type="text" placeholder="Manzilingiz" />
@@ -86,11 +92,14 @@ function CartProducts({data}) {
               <p>Umumiy narx:</p>
               <b>{data.reduce((a,b)=> a + b.price * b.quantity, 0)?.brm()} so'm</b>
             </div>
-            <button className="btn-reg">Rasmiylashtirishga o'tish</button>
+            <button className="btn-reg"> Rasmiylashtirishga o'tish</button>
           </form>
         </div>
 
       </div>
+      {
+        confetti ? <Confettiparty/> : <></> 
+      } 
     </div>
   )
 }

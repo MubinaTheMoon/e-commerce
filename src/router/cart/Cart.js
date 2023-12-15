@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Empty from '../../components/empty/Empty'
 import pic from "../../assets/shopocat.490a4a1.png"
 import CartProducts from '../../components/cart-products/CartProducts'
@@ -6,7 +6,10 @@ import { useSelector } from 'react-redux/es/hooks/useSelector'
 
 function Cart() {
   let cart = useSelector(s => s.cart.value)
-  console.log(cart);
+
+  useEffect(()=> {
+    window.scrollTo(0, 0)
+}, [])
 
   return (
     <div className='container'>
