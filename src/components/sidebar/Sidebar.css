@@ -1,0 +1,88 @@
+.sidebar__dark{
+    width: 100%;
+    height: 100vh;
+    background: #0005;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+}
+.sidebar{
+    width: 300px;
+    height: 100vh;
+    background: #222;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    transition: .3s;
+    z-index: 12;
+    border-right: 1px solid #ddd;
+    padding: 15px;
+}
+.sidebar.active{
+    left: 0;
+}
+.top{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+.logo{
+    background-color: blueviolet;
+    padding: 8px;
+    border-radius: 8px;
+}
+.search{
+    margin-top: 30px;
+    width: 100%;
+    height: 44px;
+    background: #3a3a3d;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 10px;
+    color: white;
+}
+.search input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+}
+.collection{
+    margin-top: 30px;
+}
+.item{
+    color: white;
+    list-style: none;
+    padding: 10px;
+}
+.item i{
+    margin-right: 10px;
+}
+.item:hover{
+    background-color:#3a3a3d;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px){
+    .sidebar{
+        width: 80%;
+        left: -80%;
+    }
+}

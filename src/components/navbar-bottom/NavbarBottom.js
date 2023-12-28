@@ -17,7 +17,7 @@ const DATA = [
 
 function NavbarBottom() {
   const { pathname } = useLocation()
-  if(pathname.includes("login")){
+  if(pathname.includes("login") || pathname.includes("admin")){
     return <></>
   }
 

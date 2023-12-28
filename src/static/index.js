@@ -50,4 +50,10 @@ export const PRODUCTS = [
     },
 ]
 
-export default PRODUCTS
+export const BlogData = [ 
+    {
+        id:"blog-1",
+        name:"nature",
+        text:"lorem ipsum",
+    }
+]

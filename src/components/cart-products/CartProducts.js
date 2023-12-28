@@ -20,7 +20,6 @@ function CartProducts({data}) {
   const [address, setAddress] = useState("")
   const [message, setMessage] = useState("")
   const [confetti, setConfetti] = useState(false)
-  console.log(confetti);
   
   const handleSubmit = (e)=> {
     e.preventDefault()

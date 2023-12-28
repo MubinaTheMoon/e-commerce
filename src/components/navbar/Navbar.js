@@ -7,11 +7,15 @@ import { IoHomeOutline, IoMenu } from "react-icons/io5";
 import { NavLink, useLocation } from "react-router-dom";
 import notfound from "../../assets/notfound.webp";
 import { Link } from "react-router-dom";
+import Sidebar from "../sidebar/Sidebar";
 
 function Navbar({ data }) {
   const [value, setValue] = useState("");
+  const [show, setShow] = useState(false)
   const [searchData, setSearchData] = useState([]);
   const { pathname } = useLocation();
+
+  document.body.style.overflow = show ?  "hidden" : "auto"
 
   useEffect(() => {
     if (value.trim()) {
@@ -25,7 +29,7 @@ function Navbar({ data }) {
     }
   }, [value]);
 
-  if (pathname.includes("login")) {
+  if (pathname.includes("login") || pathname.includes("admin") ) {
     return <></>;
   }
 
@@ -35,7 +39,7 @@ function Navbar({ data }) {
         <h2 className="nav__logo">
           <NavLink to={"/"}>uzum market</NavLink>
         </h2>
-        <button className="nav__category">
+        <button onClick={()=> setShow(true)} className="nav__category">
           <IoMenu />
           <span>Katalog</span>
         </button>
@@ -88,7 +92,7 @@ function Navbar({ data }) {
             </NavLink>
           </li>
           <li className="nav__item">
-            <NavLink to={"/login"}>
+            <NavLink to={"/admin/create-product"}>
               <FaRegUser />
               <span>Kirish</span>
             </NavLink>
@@ -107,6 +111,7 @@ function Navbar({ data }) {
           </li>
         </ul>
       </div>
+      <Sidebar show={show} setShow={setShow}/>
     </div>
   );
 }

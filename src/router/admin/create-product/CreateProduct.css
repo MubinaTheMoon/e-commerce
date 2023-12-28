@@ -1,0 +1,33 @@
+.create__product-input{
+    display: block;
+    margin-bottom: 16px;
+    padding: 0 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    width: 350px;
+    height: 40px;
+    outline: none;
+}
+.create__product-input:focus{
+    outline: 2px solid #a6d3ff;
+}
+.create__product-file{
+    width: 80px;
+    height: 80px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    font-size: 36px;
+    color: #999;
+}
+.create__product-file input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}

@@ -8,28 +8,49 @@ import { Routes, Route } from 'react-router-dom';
 import Footer from './components/footer/Footer';
 import NavbarBottom from './components/navbar-bottom/NavbarBottom';
 import Login from './router/login/Login';
-import CartProducts from './components/cart-products/CartProducts';
 import {PRODUCTS} from "./static"
 import NotFound from './components/not-found/NotFound';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import SingleRoute from './router/single-route/SingleRoute';
-import Confettiparty from './components/confettiparty/Confettiparty';
+import Admin from './router/admin/Admin';
+import Auth from './router/auth/Auth';
+import { useState, useEffect } from 'react';
+import { db } from './server/Firebase';
+import { collection, getDocs } from 'firebase/firestore'
 
 function App() {
+  const [data, setData] = useState([])
+  const usersCollectionRef = collection(db, "products");
+  useEffect(()=> {
+    const getProducts = async () => {
+    const data = await getDocs(usersCollectionRef);
+    setData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  };
+
+    getProducts();
+  }, [])
+
+
+
   return (
     <div className="App">
         <SubHeader/>
-        <Navbar data={PRODUCTS} />
+        <Navbar data={data} />
         <NavbarBottom/>
         <Routes>
-          <Route path='/' element={<Home data={PRODUCTS}/>}/>
+          <Route path='/' element={<Home data={data}/>}/>
           <Route path='/login' element={<Login/>}/>
+
+
           <Route path='/wishes' element={<Wishes/>}/>
           <Route path='/cart' element={<Cart/>}/>
-          <Route path='/confet' element={<Confettiparty/>}/>
-          <Route path='/cart-products' element={<CartProducts/>}/>
-          <Route path='/product/:id' element={<SingleRoute data={PRODUCTS} />}/>
+          <Route path='/product/:id' element={<SingleRoute data={data} />}/>
+
+          <Route path='/' element={<Auth/>} >
+            <Route path='/admin/*' element={<Admin/>}/>
+          </Route>
+          
           <Route path='*' element={<NotFound/>}/> 
         </Routes>
         <Footer/> 
