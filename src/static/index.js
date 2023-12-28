@@ -55,5 +55,20 @@ export const BlogData = [
         id:"blog-1",
         name:"nature",
         text:"lorem ipsum",
-    }
+    },
+    {
+        id:"blog-2",
+        name:"nature",
+        text:"lorem ipsum",
+    },
+    {
+        id:"blog-3",
+        name:"nature",
+        text:"lorem ipsum",
+    },
+    {
+        id:"blog-4",
+        name:"nature",
+        text:"lorem ipsum",
+    },
 ]

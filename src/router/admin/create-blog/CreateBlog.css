@@ -1,0 +1,28 @@
+.input__blog, .textarea__blog, .btn__blog{
+    display: block;
+    margin-top: 20px;
+}
+.input__blog{
+    width: 300px;
+    height: 50px;
+    font-size: 17px;
+    text-indent: 16px;
+}
+.input__blog:focus{
+    outline: 2px solid #a6d3ff;
+}
+.textarea__blog{
+    padding: 10px 0 0 10px; 
+    font-size: 17px;
+}
+.textarea__blog:focus{
+    outline: 2px solid #a6d3ff;
+}
+.btn__blog{
+    border: none;
+    font-size: 17px;
+    padding: 15px 30px;
+    border-radius: 8px;
+    background: var(--bg-py);
+    color: #fff;
+}

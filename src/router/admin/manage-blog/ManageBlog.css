@@ -1,0 +1,22 @@
+.main{
+    display: flex;
+    gap: 50px;
+    margin-top: 20px;
+}
+.middle{
+    border: 2px solid dodgerblue;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    background: rgb(209, 232, 255);
+}
+.title{
+    font-family: monospace;
+    font-size: 25px;
+    color: var(--bg-py);
+}
+.text{
+    padding-top: 8px;
+
+}

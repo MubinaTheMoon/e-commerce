@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import "./Product.css";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart, FaTrash } from "react-icons/fa";
 import { IoCartOutline} from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleWishes } from "../../context/wishes";
 import { incCart } from "../../context/cartSlice";
 import {toast} from 'react-toastify'
 import { Link } from "react-router-dom";
+import Skeleton from "./Skeleton";
 
-function Product({ data }) {
+function Product({ data, admin }) {
   const [count, setCount] = useState(1)
   const DEFAULT__COUNT = 5
   const dispatch = useDispatch();
@@ -43,9 +44,15 @@ function Product({ data }) {
                   wishes.some(item => item.id === el.id) ? <FaHeart style={{color: "var(--bg-py)" }}/> : <FaRegHeart/>
               }
             </div>
-            <div onClick={() => handleAddToCart(el)} className="products__cart">
-              <IoCartOutline />
-            </div>
+            {
+              admin ?
+              <div className="products__cart">
+                <FaTrash/>
+              </div>  :
+              <div onClick={() => handleAddToCart(el)} className="products__cart">
+                <IoCartOutline />
+              </div> 
+            }
         </div>
       ))}
       </div>

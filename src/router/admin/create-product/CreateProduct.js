@@ -45,11 +45,9 @@ function CreateProduct() {
       setOPtion("")
       setPrice("")
 
-      console.log("succesfully saved");
     })
     .catch(()=> {
       toast.error("Afsuski ma'lumot saqlanmadi")
-      console.log("Ma'lumot saqlanmadi");
     })
     .finally(()=>{
       setLoading(false)

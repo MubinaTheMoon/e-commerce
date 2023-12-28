@@ -5,6 +5,15 @@ import { ADMIN_ROUTES } from '../../static/adminRoutes'
 
 function Admin() {
   const navigate = useNavigate()
+  const handleLogOut = ()=>{
+    if(window.confirm("Are you sure to log out?")){
+      localStorage.removeItem("email")
+      navigate("/login")
+
+    }
+  }
+
+
   return (
     <div className='admin'>
       <div className="admin__sidebar">
@@ -15,6 +24,9 @@ function Admin() {
             ADMIN_ROUTES?.map((el, inx)=> <NavLink key={inx} to={el.link}>{el.title}</NavLink>)
           }
         </div>
+
+        <button onClick={handleLogOut}>Log Out</button>
+
       </div>
       <div className="admin__content">
         <Routes>
@@ -23,6 +35,9 @@ function Admin() {
           }
         </Routes>
       </div>
+          
+
+
     </div>
   )
 }
